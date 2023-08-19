@@ -1,39 +1,7 @@
-{
-  "version": 2.0,
-  "questions": [
-    {
-      "question": "This is a Sample Question 1?",
-      "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
-      },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
-      },
-      "correctAnswer": "a",
-      "difficulty": "beginner"
-    },
-    {
-      "question": "This is a Sample Question 2?",
-      "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
-      },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
-      },
-      "correctAnswer": "c",
-      "difficulty": "beginner"
-    }
-  ]
-}
+[{"question":"GaAs is used in the fabrication of GUNN diodes because:","answers":{"a":"GaAs is cost effective","b":"It less temperature sensitive","c":"It has low conduction band electrons","d":"Less forbidden energy gap"},"correctAnswer":"d"},
+{"question":"The electrodes of a Gunn diode are made of:","answers":{"a":"Molybdenum","b":"GaAs","c":"Gold","d":"Copper"},"correctAnswer":"a"},
+{"question":"The mode of operation in which the Gunn diode is not stable is:","answers":{"a":"Gunn oscillation mode","b":"Limited space charge accumulation mode","c":"Stable amplification mode","d":"Bias circuit oscillation mode"},"correctAnswer":"a"},
+{"question":"The negative resistance in Gunn diode is due to","answers":{"a":"Electron transfer to a less mobile energy level","b":"High reverse bias","c":"Electron domain formation at the junction","d":"Tunneling across the junction"},"correctAnswer":"c"},
+{"question":"In Gunn diode oscillator, the Gunn diode is inserted into a waveguide cavity formed by a short circuit termination at one end","answers":{"a":"True","b":"False"},"correctAnswer":"a"}]
+
+
