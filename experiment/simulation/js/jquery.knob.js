@@ -26,7 +26,8 @@ ko.applyBindings(viewModel);
     }
     else{
       document.getElementById('name').innerText='Gunn Diode Current' 
-      
+  
+      /*
     if (b==0.50) {
         var viewModel = {
             testValue2: ko.observable("0.07"),
@@ -154,6 +155,72 @@ ko.applyBindings(viewModel);
        
    };    a=0.00
 }
+   */
+
+if (b==0.50) {
+    var viewModel = {
+        testValue2: ko.observable("0.07"),
+        
+   };  
+   a=0.07 
+}
+else if (b==1.00) {
+    var viewModel = {
+        testValue2: ko.observable("0.14"),
+        
+   };   
+   a=0.14
+}
+else if (b==1.50) {
+    var viewModel = {
+        testValue2: ko.observable("0.19"),
+        
+   };  
+   a=0.19 
+}
+else if (b==2.00) {
+    var viewModel = {
+        testValue2: ko.observable("0.22"),
+        
+   };   a=0.22
+}
+else if (b==2.50) {
+    var viewModel = {
+        testValue2: ko.observable("0.24"),
+        
+   }; 
+   a=0.24  
+}
+else if (b==3.00) {
+    var viewModel = {
+        testValue2: ko.observable("0.22"),
+        
+   };  
+   a=0.22
+
+}
+else if (b==3.50) {
+    var viewModel = {
+        testValue2: ko.observable("0.15"),
+        
+   };   
+   a=0.15
+}
+else if (b==4.00) {
+    var viewModel = {
+        testValue2: ko.observable("0.19"),
+       
+   };    a=0.19
+}
+
+
+else {
+var viewModel = {
+    testValue2: ko.observable("0.00"),
+   
+};    a=0.00
+}
+
    c=a,d=b 
  ko.applyBindings(viewModel);
  
@@ -221,7 +288,13 @@ if ( isNaN(b)){
                    a=0.00
                    b=0.00
                     
-                }}
+                }
+                if(i==8)
+                {
+                    document.getElementById('addto').disabled=true;
+                }
+            
+            }
                     
                     
 (function (factory) {
