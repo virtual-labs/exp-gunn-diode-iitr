@@ -263,8 +263,8 @@ document.getElementById("check11").addEventListener("click", function () {
                   container: 'position-absolute',
                   popup:"swal2-popup"
                 },
-                title:'Good Job',
-                text:"Correct Connection",      
+                title:'Correct Connection!!',
+                text:"Connection Established",      
                 icon:'success',
                 });
             

@@ -1,1 +1,1 @@
-## To Plot the V-I Characteristics of Gunn Diode.
+## V-I Characteristics of Gunn Diode.

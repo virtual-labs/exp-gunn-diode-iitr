@@ -10,12 +10,12 @@ C   It has low conduction band electrons
 <b>D   Less forbidden energy gap</b>  
 <br>
 
-Q2. The electrodes of a Gunn diode are made of:<br>
+Q2. In the V-I characteristic curve, what does the point of maximum current represent?<br>
 
-<b>A   Molybdenum</b>  
-B   GaAs  
-C   Gold  
-D   Copper  
+<b>A   Breakdown voltage</b>  
+B   Peak current  
+C   Cut-off point  
+D   Switching point  
 <br>
 
 Q3. The mode of operation in which the Gunn diode is not stable is:<br>

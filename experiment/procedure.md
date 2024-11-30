@@ -12,7 +12,7 @@ To perform the experiment follow the steps:
 
 ![](images/setup1.png)
 
-**Fig. 1 Setup to plot the V-I characteristics of gunn diode**
+**Fig. 1 Bench setup for V-I Characteristics of Gunn Diode**
 </center>
 
   

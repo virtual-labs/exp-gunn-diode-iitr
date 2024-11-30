@@ -144,7 +144,7 @@ displayValue: function(value, bDecimalPoint) {
 },
 
 /**
-Return the bitfield mask for the segments to illuminate for the argumen numeric digit value.    
+Return the bitfield mask for the segments to illuminate for the argument numeric digit value.    
 */
 _getSegments: function(value) {
     if(value === "-") return 0x40;
