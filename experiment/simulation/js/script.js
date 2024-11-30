@@ -41,7 +41,7 @@ function addValue() {
 
   //Now call function to add rows
 
-
+console.log('callled')
 }
 
 
@@ -59,7 +59,7 @@ function makePlot() {
         container: 'position-absolute',
         popup:"swal2-popup"
       },
-      text:"Take down atleast 7 values for Voltage and Current",      
+      text:"Take down at least 7 values for Voltage and Current.",      
       icon:'info',
       });
    
@@ -75,6 +75,7 @@ function makePlot() {
     for (let i = 0; i < xValue.length; i++) {
       c.push(i)
     }
+
     document.getElementById("exp").style.opacity = "0"
     document.getElementById("exp").style.display = "none"
     document.getElementById("graph").style.opacity = "1"
@@ -98,7 +99,7 @@ function makePlot() {
       },
       xaxis: {
         title: {
-          text: 'Voltage',
+          text: 'Voltage (V)',
           font: {
             family: 'verdana',
             size: 15,
@@ -107,7 +108,7 @@ function makePlot() {
       },
       yaxis: {
         title: {
-          text: 'Current',
+          text: 'Current (mA)',
           font: {
             family: 'verdana',
             size: 15,
@@ -140,7 +141,8 @@ async function close1() {
   document.getElementById("exp").style.opacity = "1",
     document.getElementById("exp").style.display = "block",
     document.getElementById("graph").style.opacity = "0",
-    document.getElementById("graph").style.display = "none"
+    document.getElementById("graph").style.display = "none";
+    size=0;
     await sleeps(400)
     {
       Swal.fire({

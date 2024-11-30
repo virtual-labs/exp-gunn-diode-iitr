@@ -19,9 +19,37 @@ The Current in Gunn diode starts increasing initially with the applied DC voltag
 
 ![](images/graph1.png) 
 
-**Fig. 1 V-I characteristics of Gunn diode**</center>
+**Fig. 1 V-I Characteristics of Gunn Diode**</center>
 
 After crossing threshold point the current starts decreasing and this creates negative resistance region in the diode. Due to this negative resistance region, the diode acts as amplifier and oscillator. In this negative resistance region, the Gunn diode is able to amplify the signals.
+
+
+#### Component Used for Characteristics of Gunn Diode
+
+1. **GUNN Power Supply**  
+Provides the necessary DC voltage to the Gunn diode, enabling it to operate in its oscillation region and generate microwave signals.
+
+2. **GUNN Oscillator**  
+A circuit configuration that uses the Gunn diode to produce continuous microwave oscillations. It is essential for generating stable RF signals for measurement.
+
+3. **Pin Modulator**  
+Controls the amplitude of the output signal by varying the input power to the Gunn diode, allowing for modulation of the signal, which is useful for testing and analysis.
+
+4. **Isolator**  
+Prevents reflected signals from returning to the Gunn diode, protecting it from potential damage and ensuring stable operation by maintaining unidirectional signal flow.
+
+5. **Attenuator**  
+Allows for precise control of the signal power reaching the detector, enabling adjustments to observe the effects of power levels on the diode’s performance.
+
+6. **Frequency Meter**  
+Measures the frequency of the output signal from the Gunn oscillator, allowing for precise tuning and characterization of the oscillation frequency.
+
+7. **Detector**  
+Measures the power of the microwave output signal, providing a way to analyze the performance and characteristics of the Gunn diode.
+
+8. **VSWR Meter**  
+Measures the Voltage Standing Wave Ratio (VSWR), which indicates the efficiency of power transmission from the Gunn diode to the load. A low VSWR indicates good impedance matching.
+
 
 #### Block Diagram
     
@@ -29,7 +57,7 @@ After crossing threshold point the current starts decreasing and this creates ne
 
 ![](images/block1.png)
 
-**Fig. 2 Bench setup for V-I characteristics of Gunn diode**</center>
+**Fig. 2 Bench setup for V-I Characteristics of Gunn Diode**</center>
 
 
 #### Advantages of Gunn diode
