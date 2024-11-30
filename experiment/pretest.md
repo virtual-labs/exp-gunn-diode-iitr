@@ -11,12 +11,12 @@ D   All of the above
 <br>
 
 
-Q2. The gunn diode is used in the range of<br>
+Q2. The electrodes of a Gunn diode are made of:<br>
 
-A   Below 100 MHz  
-<b>B   More than 100 KHz</b>  
-C   Below 1500 MHz  
-D   Above 15 GHz  
+<b>A   Molybdenum</b>  
+B   GaAs  
+C   Gold  
+D   Copper  
 <br>
 
 
@@ -40,7 +40,7 @@ D   Two P-N junction
 
 Q5. The gunn diode is also known as<br>
 
-A   The gunn diode is also known as  
+A   No barrier diode  
 <b>B   Active area diode</b>  
 C   Esaki diode  
 D   Bulk diode  
