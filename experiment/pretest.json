@@ -1,0 +1,6 @@
+[{"question":"The gunn diode is","answers":{"a":"A bulk effect device","b":"Mostly used as a rectifier","c":"Mostly made with silicon","d":"All of the above"},"correctAnswer":"a"},
+{"question":"The electrodes of a Gunn diode are made of:","answers":{"a":"Molybdenum","b":"GaAs","c":"Gold","d":"Copper"},"correctAnswer":"a"},
+{"question":"The gunn diode is most suited for","answers":{"a":"Microwave mixers","b":"Microwave amplifiers","c":"Microwave rectifiers","d":"Microwave oscillators"},"correctAnswer":"d"},
+{"question":"The gunn diode has","answers":{"a":"A single P-N junction","b":"Three P-N junction","c":"No P-N junction","d":"Two P-N junction"},"correctAnswer":"a"},
+{"question":"The gunn diode is also known as","answers":{"a":"No barrier diode","b":"Active area diode","c":"Esaki diode","d":"Bulk diode"},"correctAnswer":"b"}]
+
