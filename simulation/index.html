@@ -1,0 +1,751 @@
+<!DOCTYPE >
+<html>
+
+<head>
+ <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script src="js/knockout-2.2.1.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="js/sevenSeg.js"></script>
+  <script src="js/demo.js"></script>
+  <script src="js/jquery.knob.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+  <script src="js/script.js"></script>
+  <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+   <!-- Resources -->
+   <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+   <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+   <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+   <!-- Chart code -->
+   <script>
+   am4core.ready(function() {
+   
+   // Themes begin
+   am4core.useTheme(am4themes_animated);
+   // Themes end
+   
+   // create chart
+   var chart = am4core.create("chartdiv", am4charts.GaugeChart);
+   chart.hiddenState.properties.opacity = 0;
+   
+   var axis = chart.xAxes.push(new am4charts.ValueAxis());
+   
+   axis.strictMinMax = false
+   axis.renderer.inside = true;
+   //axis.renderer.ticks.template.inside = true;
+   //axis.stroke = chart.colors.getIndex(3);
+   axis.renderer.radius = am4core.percent(160);
+   //axis.renderer.radius = 80;
+   axis.renderer.line.strokeOpacity = 1;
+   axis.renderer.line.strokeWidth = 1;
+   axis.renderer.line.stroke = chart.colors.getIndex(0);
+   axis.renderer.ticks.template.disabled = true
+   axis.renderer.ticks.template.stroke = chart.colors.getIndex(0);
+   axis.renderer.labels.template.radius = 2;
+   axis.renderer.ticks.template.strokeOpacity = 1;
+   axis.renderer.grid.template.disabled = true;
+   axis.renderer.ticks.template.length = 10;
+   axis.hiddenState.properties.opacity = 1;
+   axis.hiddenState.properties.visible = true;
+   axis.setStateOnChildren = true;
+   axis.renderer.hiddenState.properties.endAngle = 180;
+
+
+   var axis3 = chart.xAxes.push(new am4charts.ValueAxis());
+  
+   axis3.strictMinMax = false;
+   axis3.renderer.inside = true;
+   //axis.renderer.ticks.template.inside = true;
+   //axis.stroke = chart.colors.getIndex(3);
+   axis3.renderer.radius = am4core.percent(200);
+   //axis.renderer.radius = 80;
+   axis3.renderer.line.strokeOpacity = 1;
+   axis3.renderer.line.strokeWidth = 1;
+   axis3.renderer.line.stroke = chart.colors.getIndex(0);
+   axis3.renderer.ticks.template.disabled = false
+   axis3.renderer.ticks.template.stroke = chart.colors.getIndex(0);
+   axis3.renderer.labels.template.radius = 2;
+   axis3.renderer.ticks.template.strokeOpacity = 1;
+   axis3.renderer.grid.template.disabled = true;
+   axis3.renderer.ticks.template.length = 10;
+   axis3.hiddenState.properties.opacity = 1;
+   axis3.hiddenState.properties.visible = true;
+   axis3.setStateOnChildren = true;
+   axis3.renderer.hiddenState.properties.endAngle = 180;
+   
+   var axis2 = chart.xAxes.push(new am4charts.ValueAxis());
+    axis2.min = 0;
+    axis2.max = 1.5;
+    axis2.renderer.labels.template.fill = am4core.color('red');
+    axis2.renderer.labels.template.fontSize = 8;
+    
+   axis2.strictMinMax = true;
+   
+   axis2.renderer.radius = am4core.percent(240);
+   axis2.renderer.line.strokeOpacity = 1;
+   axis2.renderer.line.strokeWidth = 1;
+   axis2.renderer.line.stroke = chart.colors.getIndex(1);
+   axis2.renderer.ticks.template.stroke = chart.colors.getIndex(1);
+   axis2.renderer.labels.template.radius = 7;
+   axis2.renderer.ticks.template.disabled = false
+   axis2.renderer.ticks.template.strokeOpacity = 1;
+   axis2.renderer.grid.template.disabled = true;
+   axis2.renderer.ticks.template.length = 6;
+   axis2.hiddenState.properties.opacity = 1;
+   axis2.hiddenState.properties.visible = true;
+   axis2.setStateOnChildren = true;
+   axis2.renderer.hiddenState.properties.endAngle = 180;
+   
+   
+   
+   var hand2 = chart.hands.push(new am4charts.ClockHand());
+   hand2.fill = axis2.renderer.line.stroke;
+   hand2.stroke = axis2.renderer.line.stroke;
+   hand2.axis = axis2;
+   hand2.pin.radius = 2;
+   hand2.startWidth = 2;
+   
+   setInterval(function() {
+     
+     hand2.showValue(Math.random()* c* d, 1, am4core.ease.cubicOut);
+     
+   }, 2000);
+   }); // end am4core.ready()
+   </script>
+  <script>
+  
+    var gtemp="";
+    function reset() {
+      window.location.reload()
+    }
+    function shows()
+    {
+      Swal.fire({
+                        backdrop:false,
+                       target: '#rom',
+                       position:'center',
+                       
+                        customClass: {
+                          container: 'position-absolute',
+                          popup:"swal2-popup"
+                        },
+                        showClass: {
+                            popup: 'animate__animated animate__fadeInDown'
+                          },
+                          hideClass: {
+                            popup: 'animate__animated animate__fadeOut'
+                          },
+                        html: '<div style="font-size:16px;">Bench setup for V-I Characteristics of Gunn Diode</div>',
+                        imageUrl: "images/setup1.png",
+                        imageWidth: 450,
+                        imageHeight: 200,
+                        imageAlt: "Setup",
+                        });
+    }
+    function allowDrop(ev) {
+      ev.preventDefault();
+    }
+
+    function drag(ev) {
+
+      ev.dataTransfer.setData("text", ev.target.id);
+      gtemp=ev.target.id+"s"
+      
+      
+
+    }
+    function appear() {
+      document.getElementById("stand").style.visibility = "visible";
+      document.getElementById("images").style.visibility = "visible";
+      document.getElementById("images").style.opacity = "1";
+      document.getElementById("powersupply").style.visibility = "visible";
+      document.getElementById("gg").style.visibility = "visible";
+      document.getElementById("gg").style.opacity = "1";
+      document.getElementById("space").style.visibility = "visible";
+      document.getElementById("exph").style.marginLeft = "243px";
+      document.getElementById("exph").style.width = "1004px";
+      document.getElementById("chartdiv").style.visibility = "visible";
+      
+    }
+    function hov() {
+      
+        document.getElementById("container").style.visibility = "visible";
+      
+      
+      }
+      function hide(){
+        
+        document.getElementById("container").style.visibility = "hidden";
+      
+      }
+   
+
+
+    function drop(ev, target) {
+      ev.preventDefault();
+      var da = target;
+      
+      if ($(da).children()[0] != undefined) {
+        console.log($(da).children()[0])
+        console.log(ev)
+        document.getElementById('gg').appendChild($(da).children()[0].getData("text/html"))
+      }
+      $(da).empty();
+
+      var data = ev.dataTransfer.getData("text");
+
+
+      if (ev.target.id != document.getElementById(data).getAttribute('data-div'))
+  { 
+    Swal.fire({
+                        backdrop:false,
+                       target: '#rom',
+                       position:'center',
+                       width:'480px',
+                        customClass: {
+                          container: 'position-absolute',
+                          popup:"swal2-popup"
+                        },
+                        html:'Incorrect component placement. Click the <b>Experiment setup</b> button to view the setup.',
+                        title:'Please try again!!',     
+                        icon:'error',
+                        });
+
+return;
+  }
+      target.appendChild(document.getElementById(data));
+      document.getElementById(gtemp).style.display="block";
+      if($("#drag1").parents("#div1").length == 1 && $("#drag4").parents("#div4").length == 1 && $("#drag9").parents("#div9").length == 1)
+      {
+        document.getElementById("con").style.visibility = "visible";
+        document.getElementById("check11").disabled=false;
+      }
+      var op=data+"s";
+      document.getElementById(op).style.opacity=0.5;
+      document.getElementById(op).draggable=false;
+    }
+   
+
+  </script>
+
+<script>
+  $(function($) {
+
+      $(".knob").knob({
+          change : function (value) {
+              //console.log("change : " + value);
+          },
+          release : function (value) {
+              //console.log(this.$.attr('value'));
+              console.log("release : " + value);
+          },
+          cancel : function () {
+              console.log("cancel : ", this);
+          },
+          /*format : function (value) {
+              return value + '%';
+          },*/
+          draw : function () {
+
+              // "tron" case
+              if(this.$.data('skin') == 'tron') {
+
+                  this.cursorExt = 0.3;
+
+                  var a = this.arc(this.cv)  // Arc
+                      , pa                   // Previous arc
+                      , r = 1;
+
+                  this.g.lineWidth = this.lineWidth;
+
+                  if (this.o.displayPrevious) {
+                      pa = this.arc(this.v);
+                      this.g.beginPath();
+                      this.g.strokeStyle = this.pColor;
+                      this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, pa.s, pa.e, pa.d);
+                      this.g.stroke();
+                  }
+
+                  this.g.beginPath();
+                  this.g.strokeStyle = r ? this.o.fgColor : this.fgColor ;
+                  this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, a.s, a.e, a.d);
+                  this.g.stroke();
+
+                  this.g.lineWidth = 2;
+                  this.g.beginPath();
+                  this.g.strokeStyle = this.o.fgColor;
+                  this.g.arc( this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false);
+                  this.g.stroke();
+
+                  return false;
+              }
+          }
+      });
+
+      // Example of infinite knob, iPod click wheel
+      var v, up=0,down=0,i=0
+          ,$idir = $("div.idir")
+          ,$ival = $("div.ival")
+          ,incr = function() { i++; $idir.show().html("+").fadeOut(); $ival.html(i); }
+          ,decr = function() { i--; $idir.show().html("-").fadeOut(); $ival.html(i); };
+      $("input.infinite").knob(
+                          {
+                          min : 0
+                          , max : 20
+                          , stopper : false
+                          , change : function () {
+                                          if(v > this.cv){
+                                              if(up){
+                                                  decr();
+                                                  up=0;
+                                              }else{up=1;down=0;}
+                                          } else {
+                                              if(v < this.cv){
+                                                  if(down){
+                                                      incr();
+                                                      down=0;
+                                                  }else{down=1;up=0;}
+                                              }
+                                          }
+                                          v = this.cv;
+                                      }
+                          });
+  });
+</script>
+</head>
+<link rel="stylesheet" href="css/task7.css">
+
+<body>
+  <div id="box">
+<div class="mainn">
+  <table>
+   
+      
+    </tr>
+<tr>
+
+  <td>
+   
+   <div id="exph">
+    <h2 id="expm"> V-I Characteristics of Gunn Diode  &emsp; &emsp; &emsp; &emsp; &emsp;  &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; <button style="font-family: 'Times New Roman', Times, serif;" ondblclick="hide()"  onclick="hov()" id="help">INSTRUCTIONS</button> </h2>
+   
+    </div>
+    
+    
+    <div id="container">
+      <div id="carouselContent" class="carousel" data-interval="false">
+          <div class="carousel-inner" role="listbox">
+              <div class="carousel-item active ">
+                  Click on Components button for components to pop up.
+              </div>
+              <div class="carousel-item ">   
+                  Click on the component, drag them to the test bench and place them as shown in the experiment setup.
+              </div>
+              <div class="carousel-item ">
+                  
+                After placing the components on the test bench, connect the wires accordingly.
+            </div>
+            <div class="carousel-item ">
+                  
+             To check your connections  click on "Check Connections" button.
+          </div>
+          <div class="carousel-item ">
+                  
+           If your connections are correct then you may continue to take down the readings, if not then click on "Reset Button" and try it again.
+         </div>
+         <div class="carousel-item ">
+                  
+         Move the "Gunn Bias" knob and set it to 0.5 or above to record your readings.
+        </div>
+        <div class="carousel-item ">
+                  
+          Toggle the switch button to get the value of Gunn Diode Current.
+         </div>
+         <div class="carousel-item ">
+                  
+         Click on Add to table to take down the values of Gunn Bias Voltage and Gunn Diode Current.
+         </div>
+         <div class="carousel-item ">
+                  
+         Toggle the switch button again for Gunn Bias Voltage and move the "Gunn Bias" knob for different reading. 
+         </div>
+         <div class="carousel-item ">
+                  
+          Repeat the process for almost 7 different readings as you did for the first reading.
+         </div>
+      
+         <div class="carousel-item ">
+                  
+          Click on "Plot" button to plot a graph as per your readings.
+         </div>
+         <div class="carousel-item ">
+                  
+          If you want to save the graph click on the camera icon just above the graph.
+         </div>
+         <div class="carousel-item ">
+                  
+          If you want to take down more readings, then click on "Close" Button. 
+         </div>
+         <div class="carousel-item ">
+                  
+         And repeat the same process to take down the readings as you did for the first reading.
+         </div>
+         <div class="carousel-item ">
+                  
+          Click on 'Print' button to print your current page (readings and connections) or to save your page (readings and connections) in a PDF form.
+         </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselContent" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>       
+        </a>
+         
+          <a class="carousel-control-next" href="#carouselContent" role="button" data-slide="next">        
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </a>
+        
+      </div>
+  </div>
+    
+    
+    
+    <div  id="gg"  ondragover="allowDrop(event)">
+      <table id="images1">
+        <tr>
+          <td id="headingg1" >
+            <h2 style="margin-bottom: 1px;">
+              READINGS
+            </h2>
+          </td>
+        </tr>
+            
+          <tr> <td style="padding-left: 4px; ">
+            <hr style="width: 170px;">
+          </td></tr>
+
+         <tr>
+           <td style="padding-left: 10px;text-align: justify;">
+            Click on Add to table to add on the value for Gunn Bias Voltage and Gunn Diode Current.
+           </td>
+         </tr>
+        
+         <tr>
+           <td style="padding-top: 30px; padding-bottom: 20px;" >
+            <div class="tablediv" >
+             <table id="readin">
+              <tr>
+                <th>Gunn Bias Voltage (V)</th>
+                <th>Gunn Diode Current (mA)</th>
+              </tr>
+        
+        
+            </div>
+          </td>
+
+       </tr>
+      </table>
+   
+<tr> 
+  <td>
+    <table>
+      <tr>
+        <td>
+          <td id="button" >
+            <button id="addto" onclick="validate()">Add To Table</button>
+          </td>
+        </td>
+        <td  >
+            <button id="plot"  onclick="makePlot()">Plot</button>
+          </td>
+      </tr>
+    </table>
+  </td>
+          
+  </tr>
+  </table>
+
+
+      <table id="images">
+      <tr>
+        <td id="headingg" >
+          <h2>
+            COMPONENTS
+          </h2>
+          <hr>
+        </td>
+      </tr>
+          
+        <tr>
+          <td>
+            <table id="ctab">
+        <tr>
+          
+          <td >
+            <img id="drag2" src="images/isolator.png" draggable="true" ondragstart="drag(event)" width="80" height="60" data-div="div2">
+            <img  id="drag2s" src="images/isolator.png" width="80" style="display: none;">
+          </td>
+        </tr>
+        <tr>
+          <td class="imgr">
+            Isolator
+          </td>
+        </tr>
+          <tr>
+          <td style="padding-left: 30px;">
+            <img id="drag3"  src="images/attenuator.png" draggable="true" ondragstart="drag(event)" width="70" height="70" data-div="div3">
+            <img id="drag3s" src="images/attenuator.png" width="60" style="display: none;">
+          </td>
+        </tr>
+        <tr>
+          <td class="imgr">
+            Attenuator
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-left: 40px;" >
+            <img id="drag4" src="images/detector.png" draggable="true" ondragstart="drag(event)" width="40" height="70" data-div="div4">
+            <img id="drag4s" src="images/detector.png" width="30" style="display: none;">
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="imgr">
+            Detector
+          </td>
+        </tr>
+       
+        <tr>
+          <td style="padding-bottom: 3px;padding-top: 5px;">
+            <img id="drag1" src="images/gunn-diode.png" draggable="true" ondragstart="drag(event)" width="110" height="30" data-div="div1">
+            <img id="drag1s" src="images/gunn-diode.png" width="110" style="display: none;" >
+          </td>
+        </tr>
+        <tr>
+          <td class="imgr">
+           Gunn-Diode
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-left: 40px;" >
+            <img id="drag8" src="images/frequency.png" draggable="true" ondragstart="drag(event)" width="40" height="60" data-div="div8">
+            <img id="drag8s" src="images/frequency.png" width="30" style="display: none;" >
+          </td>
+        </tr>
+        <tr>
+          <td class="imgr">
+           Frequency Meter
+          </td>
+        </tr>
+        <td style="padding-left: 30px;" >
+          <img id="drag9" src="images/pin-modulator.png" draggable="true" ondragstart="drag(event)" width="70" height="30" data-div="div9">
+          <img id="drag9s" src="images/pin-modulator.png" width="70" style="display: none;" >
+        </td>
+      </tr>
+      <tr>
+        <td class="imgr">
+         Pin Modulator
+        </td>
+      </tr>
+
+      </table>
+        </td>
+      </tr>
+      </table>
+    </div>
+   
+
+ 
+  
+    
+    
+ 
+      <div id="exp">
+
+      
+  <table id="lab">
+
+  <tr> <td>
+    
+  
+    <div id="div1" ondrop="drop(event,this)" ondragover="allowDrop(event)"></div>
+    <div id="div9" ondrop="drop(event,this)" ondragover="allowDrop(event)"></div>
+    <div id="div2" ondrop="drop(event,this)" ondragover="allowDrop(event)"></div>
+    <div id="div3" ondrop="drop(event,this)" ondragover="allowDrop(event)"></div>
+    <div id="div8" ondrop="drop(event,this)" ondragover="allowDrop(event)"></div>
+    <div id="div4" ondrop="drop(event,this)" ondragover="allowDrop(event)"></div>
+    
+    
+    <div id="con" class="jtk-demo-main">
+      <!-- demo -->
+     <div class="jtk-demo-canvas canvas-wide animation-demo jtk-surface jtk-surface-nopan" id="canvas">
+         <div class="littledot" id="ld1"><label style="position:absolute;top:-22px;left: -1em;">A</label></div>
+         <div class="littledot" id="ld2">B</div>
+         <div class="littledot" id="ld3">Pin Supply</div> 
+         <div class="littledot" id="ld4">Gunn Supply</div>
+         <div class="littledot" id="ld5">E </div> 
+         <div class="littledot" id="ld6"><label style="position:absolute;top:-22px;left: -1em;">F</label></div>
+  
+     </div>
+     
+  </div>
+  
+    <div id="stand">
+     <img id="block1" src="images/block4.jpg">
+     <img id="block2" src="images/block4.jpg">
+     <img id="block4" src="images/block4.jpg">
+     <img id="block3" src="images/block4.jpg">
+     <img id="block5" src="images/block4.jpg">
+     <img id="drag0" src="images/stand.png" width="500" >
+    </div>
+
+    <div id="table55">
+      <img id="aa" src="images/table.png " width="1000" height="100" >
+    </div>
+    
+
+    <div id="space">
+     
+     
+<img id="croi" src="images/cro.png">
+
+    </div>
+ <!-- <div  id="grpwrap" style="height: 70px; width: 90px; " >
+     
+      <canvas id="C1" style="background-image: url('images/SharedScreenshot.jpg'); height: 70px; width: 90px; " ></canvas>
+  
+  </div>-->  
+  <div id="chartdiv"></div>
+    <div id="powersupply">
+          
+      <table>
+            <tr>
+              <h2 class="heading5">Gunn Power Supply</h2>
+            </tr>
+            <tr>
+            
+              <div class="exampleContainer exampleInput">
+                <div id="aaaa" data-bind="sevenSeg: {digits: 6, value:testValue2 }"></div>
+              </div>
+            
+            </tr>
+          
+       
+        <tr>
+          <h6 id="name">Gunn Bias Voltage</h6>
+            <label class="switch"  >
+                
+              <input type="checkbox" disabled onclick="myFunction()" id="cch">
+             
+         <span class="slider round">   </span>
+         </tr>
+        <tr >
+              <td class="voltage2" >
+               <h4   class="heading4">Gunn Bias</h4> 
+               
+                  <input class="knob" data-displayInput=false data-skin="tron"  id="gunn" data-min="0" data-max="4.00" data-step="0.50" data-width="44" data-cursor=true data-fgColor="#1f9cc2" data-thickness=0.3 value="0">
+             
+             
+              </td>
+          </tr>
+          <tr >
+            
+            <td class="voltage" >
+              <h4   class="heading4">Pin Bias</h4> 
+                 <input class="knob" data-displayInput=false data-skin="tron" data-min="0" data-max="10" data-step="0.5"  data-width="40" readonly data-cursor=true data-fgColor="#1f9cc2" data-thickness=0.3 value="7">
+            
+            
+             </td>
+             <td class="voltage">
+              <h4   class="heading4">Mod Freq</h4> 
+                 <input class="knob" data-displayInput=false data-skin="tron" data-min="0" data-max="10" data-step="0.5"  data-width="40" readonly data-cursor=true data-fgColor="#1f9cc2" data-thickness=0.3 value="7">
+            
+            
+             </td>
+        </tr>
+             
+                </table>
+                
+
+  </div>
+  </td>
+</tr>
+
+<div id="rom">
+  <img id="rom1"src="images/empty-room-with-white-brick-walls-studio_107791-1349.jpg" style="max-width: 1000;">
+</div>
+    
+      </table>
+      <div id="but">
+        <button id="check" onclick="appear()">Components</button>
+        <button id="check11" disabled>Check Connections</button>
+        <button id="manual"  onclick="shows()">Experiment setup</button>
+        <button id="print" disabled onclick="print()">Print</button>
+        <button id="reset"  onclick="reset()">Reset</button>
+      </div><br>
+      <div id="prop" style="position: relative; top:70px; left:100px; ">
+          
+       
+        <table  border="2px" style=" visibility: none;">
+          
+          <tr>  <input  value="0" id="P1" onclick="cal()" >&nbsp;<output></output></td></tr>
+          
+          
+          <tr><input  value="9.4" id="P2" onclick="cal()" >
+            &nbsp; <output></output>&nbsp;GHz</td></tr>
+          
+          
+          <tr><td> <input value="90" id="P3" onclick="cal()">
+            &nbsp; <output></output><sup>o</sup></td></tr>
+          
+          
+          </table>
+          
+            <div>
+            
+
+       
+      </div>
+      
+    
+  </tr>
+
+ 
+
+</table>
+</div>
+
+<div id="graph">
+  <div id="graph1">
+  <div id="myDiv" width="30%">
+    
+  </div>
+  <button id="close" onclick="close1()">
+    Close
+  </button>
+  <button  id="watermark1"><b>© Virtual Labs IIT Roorkee</b></button>
+</div>
+</div>
+
+
+      </div>
+      <footer class="main-footer">
+        <div align="center" style="font-size: 20px;font-weight: bold;">© 2023 Virtual Labs, IIT Roorkee<!-- Institute Name --> </div>
+      </footer>
+<script src="../assets/js/iframeResize.js"></script>
+          
+          </body>
+
+
+
+
+
+ <script src="js/jquery.knob.js"></script>
+<script src="js/jsplumb1.js"></script>
+<!-- /JS -->
+
+<!--  demo code -->
+<script src="js/demo1.js"></script>
+</html>
